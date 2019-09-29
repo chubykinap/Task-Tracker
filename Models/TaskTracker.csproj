@@ -122,6 +122,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Web.config">
@@ -156,9 +160,12 @@
     <Compile Include="Models\Task.cs" />
     <Compile Include="ModelsDTO\TaskModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AccountService.cs" />
-    <Compile Include="Services\ProjectService.cs" />
-    <Compile Include="Services\TaskService.cs" />
+    <Compile Include="Services\DbAccountService.cs" />
+    <Compile Include="Services\DbProjectService.cs" />
+    <Compile Include="Services\DbTaskService.cs" />
+    <Compile Include="Services\FileAccountService.cs" />
+    <Compile Include="Services\FileProjectService.cs" />
+    <Compile Include="Services\FileTaskService.cs" />
     <Compile Include="Services\SerializationService.cs" />
     <Compile Include="Services\TrackerContext.cs" />
   </ItemGroup>

@@ -6,11 +6,11 @@ using TaskTracker.Models;
 
 namespace TaskTracker.Services
 {
-    public class AccountService : IAccount
+    public class FileAccountService : IAccount
     {
         private readonly SerializationService service;
 
-        public AccountService(string Path)
+        public FileAccountService(string Path)
         {
             service = new SerializationService(Path);
         }

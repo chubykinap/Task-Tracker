@@ -57,9 +57,9 @@ namespace TaskTracker
             }
             else if (ConfigurationManager.AppSettings["save"].Equals("file"))
             {
-                container.RegisterType<IAccount, AccountService>(new HierarchicalLifetimeManager());
-                container.RegisterType<ITask, TaskService>(new HierarchicalLifetimeManager());
-                container.RegisterType<IProject, ProjectService>(new HierarchicalLifetimeManager());
+                container.RegisterType<IAccount, FileAccountService>(new HierarchicalLifetimeManager());
+                container.RegisterType<ITask, FileTaskService>(new HierarchicalLifetimeManager());
+                container.RegisterType<IProject, FileProjectService>(new HierarchicalLifetimeManager());
             }
             else
             {

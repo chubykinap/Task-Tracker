@@ -6,11 +6,11 @@ using TaskTracker.Models;
 
 namespace TaskTracker.Services
 {
-    public class ProjectService : IProject
+    public class FileProjectService : IProject
     {
         private readonly SerializationService service;
 
-        public ProjectService(string Path)
+        public FileProjectService(string Path)
         {
             service = new SerializationService(Path);
         }
