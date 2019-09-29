@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Main";
+}
+
+<table cellpadding="10" cellspacing="0">
+    <tbody>
+        @foreach (var project in ViewBag.Projects)
+        {
+            <tr>
+                <td class="item_name">
+                    <a href="/Project/Project/@project.Id">
+                        @project.Name
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div style="padding: 5px 10px;">
+    <img src="~/Content/Image/plus.png" style="width: 15px;height: 15px">
+    <a href="/Project/AddProject">  Добавить новый проект</a>
+</div>
+

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Таск-трекер";
+}
+
+<h1>Ближайшие задачи</h1>
+<div style="padding: 5px 10px;">
+    <img src="~/Content/Image/plus.png" style="width: 15px;height: 15px">
+    <a href="/Task/AddTask">  Добавить новую задачу</a>
+</div>
+<table cellpadding="5" cellspacing="0">
+    <tbody>
+        @foreach (var task in ViewBag.Tasks)
+        {
+            <tr>
+                <td class="item_name">
+                    <a href="/Task/Task/@task.Id">@task.Name</a>
+                </td>
+            <tr />
+            <tr>
+                <td class="item_state">
+                    @task.State
+                </td>
+                <td class="item_time">
+                    @task.Shedule
+                </td>
+                <td class="item_porject">
+                    <a href="/Project/Project/@task.Project.Id">@task.Project.Name</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

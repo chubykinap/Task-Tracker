@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Layout/_LayoutAccount.cshtml";
+}
+
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<div class="registration" align="center">
+    <p>Логин</p>
+    <input type="text" id="login" value="@ViewBag.Account.Login" size="40">
+    <p>Пароль</p>
+    <input type="password" id="password" value="@ViewBag.Account.Password" size="40">
+    <br><br>
+    <input type="submit" value="Создать" onclick="reg()">
+</div>
+
+<script type="text/javascript">
+    function reg() {
+        var data = {
+            login: document.getElementById("login").value,
+            password: document.getElementById("password").value
+        }
+        $.ajax({
+            type: "POST",
+            url: "/Home/Registration",
+            data: data,
+            success: successFunc()
+        })
+    }
+
+    function successFunc() {
+        window.location = "/Home/Index"
+    }
+</script>

@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Layout/_LayoutAccount.cshtml";
+}
+
+@{
+    ViewBag.Title = "Account";
+}
+
+<form action="/Home/Registration" method="get">
+    <div class="account">
+        <h1>
+            Информация об аккаунте
+        </h1>
+        Логин:<br />
+        @ViewBag.Account.Login<br /><br />
+        <input type="submit" name="change" value="Изменить данные" />
+    </div>
+</form>
+<form action="/Home/Unreg" method="post">
+    <input type="submit" name="unreg" value="Выйти" style="margin: 10px 100px;" />
+</form>
