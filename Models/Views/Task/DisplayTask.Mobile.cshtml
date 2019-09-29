@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TaskTracker.Models.TaskModel>
+
+<table cellpadding="5" cellspacing="0">
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var task in Model)
+            {
+                <tr>
+                    <td class="item_name">
+                        <a href="/Task/Task/@task.Id">
+                            @task.Name
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="item_state">
+                        @task.Status
+                    </td>
+                    <td class="item_time">
+                        @task.Shedule
+                    </td>
+                    @if (task.Project.Id >= 0)
+                    {
+                        <td class="item_project">
+                            <a href="/Project/Project/@task.Project.Id">
+                                @task.Project.Name
+                            </a>
+                        </td>
+                    }
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

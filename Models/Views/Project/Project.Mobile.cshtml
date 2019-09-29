@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Layout/_Layout.Mobile.cshtml";
+}
+
+@{
+    ViewBag.Title = "Project";
+}
+
+<form action="/Project/AddProject" method="get">
+    <h1>Проект</h1>
+    @ViewBag.Name
+    <h2>Описание</h2>
+    @ViewBag.Description
+    <h2>Задачи в проекте</h2>
+    <table cellpadding="10" cellspacing="0">
+        <tbody>
+            @foreach (var task in ViewBag.Tasks)
+            {
+                <tr>
+                    <td class="item_name">
+                        <a href="/Task/Task/@task.Id">@task.Name</a>
+                    </td>
+                    <td class="item_state">
+                        @task.Status
+                    </td>
+                    <td class="item_time">
+                        @task.Shedule
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div style="padding: 5px 10px;">
+        <img src="~/Content/Image/plus.png" style="width: 15px;height: 15px">
+        <a href="/Task/AddTask/@ViewBag.Request">  Добавить новую задачу</a>
+    </div>
+    <br />
+    <input type="submit" name="change" value="Изменить данные" />
+</form>
+

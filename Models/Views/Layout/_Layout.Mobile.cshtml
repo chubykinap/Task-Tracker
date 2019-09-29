@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Таск-трекер
+    </title>
+    <meta http-equiv="Content-Language" content="ru">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" media="screen" href="~/Content/styleMobile.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="tracker">
+        <div class="center">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <script type="text/javascript">
+                function myFunction() {
+                    var x = document.getElementById("myLinks");
+                    if (x.style.display === "block") {
+                        x.style.display = "none";
+                    } else {
+                        x.style.display = "block";
+                    }
+                }
+            </script>
+
+            <div class="topnav">
+                <a href="/Task/Tasks" title="Таск-трекер">
+                    <img src="~/Content/Image/logo.png" style="width: 140px; height: 20px;">
+                </a>
+
+                <div id="myLinks">
+                    <a href="/Home/Account"><b>Аккаунт</b></a>
+                    <a href="/Project/Projects"><b>Проекты</b></a>
+                </div>
+
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

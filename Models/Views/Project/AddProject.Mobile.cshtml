@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Layout/_LayoutAccount.Mobile.cshtml";
+}
+
+@{
+    ViewBag.Title = "AddProject";
+}
+
+<form action="/Project/AddProject" method="post">
+    <h1>Новый проект</h1>
+    <span>Название проекта</span><br>
+    <input type="text" name="name" value="@ViewBag.Project.Name">
+    <p>
+        Описание<br>
+        <textarea rows="10" cols="45" name="description">@ViewBag.Project.Description</textarea>
+    </p>
+    <input type="submit" name="save" value="Сохранить">
+</form>
+
+<form action="/Project/Projects" method="get">
+    <input type="submit" name="back" value="Обратно" />
+</form>

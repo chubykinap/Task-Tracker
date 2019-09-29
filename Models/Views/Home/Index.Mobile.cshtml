@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Layout/_LayoutAccount.Mobile.cshtml";
+}
+
+@{
+    ViewBag.Title = "Авторизация";
+}
+
+<div class="autorization" align="center">
+    <form action="/Home/Index" method="post">
+        <p>Логин</p>
+        <input type="text" name="login" size="30">
+        <p>Пароль</p>
+        <input type="password" name="password" size="30">
+        <br><br>
+        <input type="submit" value="Войти">
+        <br><br>
+    </form>
+    <form action="/Home/Registration" method="get">
+        <input type="submit" value="Регистрация" onclick="">
+    </form>
+</div>
+

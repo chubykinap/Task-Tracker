@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Layout/_LayoutAccount.Mobile.cshtml";
+}
+
+@{
+    ViewBag.Title = "Account";
+}
+
+<form action="/Home/Registration" method="get">
+    <h1>
+        Информация об аккаунте
+    </h1>
+    Логин<br />
+    @ViewBag.Account.Login<br />
+    <input type="submit" name="change" value="Изменить данные" />
+</form>

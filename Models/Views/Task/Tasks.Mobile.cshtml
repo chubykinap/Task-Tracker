@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Layout/_Layout.Mobile.cshtml";
+}
+
+@{
+    ViewBag.Title = "Таск-трекер";
+}
+
+<h1>Ближайшие задачи</h1>
+<div style="padding: 5px 10px;">
+    <img src="~/Content/Image/plus.png" style="width: 15px;height: 15px">
+    <a href="/Task/AddTask">  Добавить новую задачу</a>
+</div>
+<div class="tasks" id="result">
+</div>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    var currentCount = 10;
+    function Load() {
+        $.ajax('http://localhost:51336/Task/DisplayTask?start=' + currentCount, {
+            success: function (data) {
+                $('#result').html(data);
+            },
+            error: function (jqXHR, exception) {
+                var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+                alert(msg);
+            },
+        });
+        currentCount += 10;
+    }
+
+    $(function () {
+        Load();
+    })
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() + 5 >= $(document).height()) {
+            Load()
+        }
+    })
+</script>

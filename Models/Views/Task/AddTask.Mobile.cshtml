@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Layout/_LayoutAccount.Mobile.cshtml";
+}
+
+@{
+    ViewBag.Title = "Добавление задачи";
+}
+
+<form action="/Task/AddTask" method="post">
+    <input type="hidden" value="@ViewBag.Task.Project.Id" name="projectId" />
+    <input type="hidden" value="@ViewBag.Task.Id" name="id" />
+    <h1>Новая задача</h1>
+    <p class="add" name="add">
+        Имя задачи<br>
+        <input type="text" name="name" value="@ViewBag.Task.Name" />
+        <br>Описание<br>
+        <textarea rows="10" cols="45" name="description">@ViewBag.Task.Description</textarea>
+        <br>Срок<br>
+        <input type="date" name="date" value="@ViewBag.Task.Shedule">
+    </p>
+    <input type="submit" name="save" value="Сохранить" />
+</form>
+<form action="/Task/Tasks" method="get">
+    <input type="submit" name="back" value="Обратно" />
+</form>
+

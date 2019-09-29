@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Layout/_Layout.Mobile.cshtml";
+}
+
+@{
+    ViewBag.Title = "Таск-трекер";
+}
+
+<form action="/Task/AddTask" method="get">
+    <h2>@ViewBag.Task.Name</h2>
+    <p>Описание<br>@ViewBag.Task.Description</p>
+    <p>Статус<br>@ViewBag.Task.Status</p>
+    <p>
+        Срок<br>
+        @ViewBag.Task.Shedule
+    </p>
+    <input type="submit" name="change" value="Изменить данные" />
+</form>
