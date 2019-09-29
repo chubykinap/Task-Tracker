@@ -11,26 +11,46 @@
     <img src="~/Content/Image/plus.png" style="width: 15px;height: 15px">
     <a href="/Task/AddTask">  Добавить новую задачу</a>
 </div>
-<table cellpadding="5" cellspacing="0">
-    <tbody>
-        @foreach (var task in ViewBag.Tasks)
-        {
-            <tr>
-                <td class="item_name">
-                    <a href="/Task/Task/@task.Id">@task.Name</a>
-                </td>
-            <tr />
-            <tr>
-                <td class="item_state">
-                    @task.State
-                </td>
-                <td class="item_time">
-                    @task.Shedule
-                </td>
-                <td class="item_porject">
-                    <a href="/Project/Project/@task.Project.Id">@task.Project.Name</a>
-                </td>
-            </tr>
+<div class="tasks" id="result">
+</div>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    var currentCount = 10;
+    function Load() {
+        $.ajax('http://localhost:51336/Task/DisplayTask?start=' + currentCount, {
+            success: function (data) {
+                $('#result').append(data);
+            },
+            error: function (jqXHR, exception) {
+                var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+                alert(msg);
+            },
+        });
+        currentCount += 10;
+    }
+
+    $(function () {
+        Load();
+    })
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() + 5 >= $(document).height()) {
+            Load()
         }
-    </tbody>
-</table>
+    })
+</script>

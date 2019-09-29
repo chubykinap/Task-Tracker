@@ -78,5 +78,10 @@ namespace TaskTracker.Controllers
             Session.Remove("taskId");
             return Redirect("/Task/Tasks");
         }
+
+        public ActionResult DisplayTask(int start)
+        {
+            return PartialView(service.GetComingTasks((int)Session["accountId"], start));
+        }
     }
 }
