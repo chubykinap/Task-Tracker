@@ -4,11 +4,11 @@ using System.Runtime.Serialization;
 namespace TaskTracker.Models
 {
     [DataContract]
-    public class Task
+    public class TaskModel
     {
         [DataMember]
         public int Id { set; get; }
-
+        
         [DataMember]
         public string Name { set; get; }
 
@@ -22,14 +22,9 @@ namespace TaskTracker.Models
         public TaskStatus Status { set; get; }
 
         [DataMember]
-        public virtual Account Account { set; get; }
+        public Account Account { set; get; }
 
         [DataMember]
-        public virtual Project Project { set; get; }
-    }
-
-    public enum TaskStatus
-    {
-        Незавершён = 0, Завершён = 1
+        public Project Project { set; get; }
     }
 }

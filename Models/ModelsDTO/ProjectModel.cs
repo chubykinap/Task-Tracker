@@ -3,7 +3,7 @@
 namespace TaskTracker.Models
 {
     [DataContract]
-    public class Project
+    public class ProjectModel
     {
         [DataMember]
         public int Id { set; get; }
@@ -15,6 +15,6 @@ namespace TaskTracker.Models
         public string Description { set; get; }
 
         [DataMember]
-        public virtual Account Account { set; get; }
+        public Account Account { set; get; }
     }
 }

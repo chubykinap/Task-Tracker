@@ -5,18 +5,16 @@ namespace TaskTracker.Interfaces
 {
     public interface IProject
     {
-        void AddElement(Project project);
+        void AddElement(ProjectModel project, int accountid);
 
-        void ChangeData(Project project);
+        void ChangeData(ProjectModel project);
 
-        void DeleteElement(Project project);
+        void DeleteElement(ProjectModel project);
 
-        Project GetElement(int id);
+        ProjectModel GetElement(int id);
 
-        List<Project> GetList();
-
-        void AddTaskToProject(Task task, int projectId);
-
-        List<Project> GetProjectsOfAccount(int accountId);
+        List<ProjectModel> GetList(int accountId);
+        
+        List<TaskModel> GetTaskInProject(int projectId);
     }
 }

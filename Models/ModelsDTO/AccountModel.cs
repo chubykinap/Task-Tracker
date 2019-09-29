@@ -3,18 +3,15 @@
 namespace TaskTracker.Models
 {
     [DataContract]
-    public class Project
+    public class AccountModel
     {
         [DataMember]
         public int Id { set; get; }
 
         [DataMember]
-        public string Name { set; get; }
+        public string Login { set; get; }
 
         [DataMember]
-        public string Description { set; get; }
-
-        [DataMember]
-        public virtual Account Account { set; get; }
+        public string Password { set; get; }
     }
 }

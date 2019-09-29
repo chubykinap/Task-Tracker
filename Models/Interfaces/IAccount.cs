@@ -5,16 +5,16 @@ namespace TaskTracker.Interfaces
 {
     public interface IAccount
     {
-        void AddElement(Account account);
+        void AddElement(AccountModel account);
 
-        void ChangeData(Account account);
+        void ChangeData(AccountModel account);
 
-        void DeleteElement(Account account);
+        void DeleteElement(AccountModel account);
 
-        Account GetElement(int id);
+        AccountModel GetElement(int id);
 
-        List<Account> GetList();
+        List<AccountModel> GetList();
 
-        Account Authorize(string login, string password);
+        AccountModel Authorize(string login, string password);
     }
 }
